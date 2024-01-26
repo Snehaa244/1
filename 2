@@ -1,0 +1,35 @@
+// mean , variance and standard deviation of array elements
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main()
+{
+    int *arr;
+    int n, sum_m = 0, sum_var = 0;
+    float mean, var, sd;
+    printf("Enter the size of array:- ");
+    scanf("%d", &n);
+    printf("Enter the elements of array:- ");
+    arr = (int *)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        sum_m += arr[i];
+    }
+    mean = sum_m / n;
+    printf("The mean of array elements is %0.2f\n", mean);
+    for (int i = 0; i < n; i++)
+    {
+        sum_var += pow((arr[i] - mean), 2);
+    }
+    var = sum_var / n;
+    printf("The variance of array elements is %0.2f\n", var);
+    sd = sqrt(var);
+    printf("The standard deviation of array elements is %0.2f", sd);
+
+
+    return 0;
+}
