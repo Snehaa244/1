@@ -1,0 +1,53 @@
+//max , min , sum and average of array elements
+#include<stdio.h>
+int max(int arr[] , int size);
+int min(int arr[] , int size);
+int main()
+{
+    int arr[20] , n , sum=0 , max1 , min2;
+    printf("Enter the size of array(upto 20):- ");
+    scanf("%d" , &n);
+    printf("Enter array elements:-\n");
+    for (int i = 0; i <n; i++)
+    {
+        scanf("%d" , &arr[i]);
+    }
+    max1=max(arr,n);
+    min2=min(arr,n);
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+    printf("The sum of array elements is %d\n" , sum);
+    float average;
+    average = sum/n;
+    printf("The average of array elements is %.2f\n" , average);
+    return 0;
+}
+int min(int arr[] , int size)
+{
+    arr[size];
+    int min=arr[0];
+    for (int i = 0; i < size; i++)
+    {
+       if(arr[i]<min)
+       min = arr[i];
+    }
+    printf("The maximum element of array is %d\n" , min);
+    return 0;
+}
+int max(int arr[] , int size)
+{
+    
+    arr[size];
+    int max=arr[0];
+    for (int i = 0; i < size; i++)
+    {
+       if(arr[i]>max)
+       max = arr[i];
+    }
+    printf("The maximum element of array is %d\n" , max);
+    return 0;
+}
+
+
