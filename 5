@@ -1,0 +1,25 @@
+//linear search
+#include<stdio.h>
+int main()
+{
+    int arr[20] , n , num , count=0;
+    printf("Enter the number to be searched in array:- ");
+    scanf("%d" , &num);
+    printf("Enter the size of array:- ");
+    scanf("%d" , &n);
+    printf("Enter array elements:-\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d" , &arr[i]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if(arr[i] == num)
+        count++;
+    }
+    if(count==0)
+    printf("Failure!!");
+    else
+    printf("Success!!");
+    return 0;
+}
