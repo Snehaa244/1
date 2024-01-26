@@ -1,0 +1,60 @@
+// merge two arrays
+// sort the array
+#include <stdio.h>
+int asc(int *arr, int n); // declaration of function for sorting array
+int main()
+{
+    int a[20], n1, n2, b[20];
+    printf("Size of array 1(upto 20) :- ");
+    scanf("%d", &n1);
+    printf("Enter array 1 elements:- ");
+    for (int i = 0; i < n1; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    asc(a, n1);
+    printf("Size of array 2(upto 20) :- ");
+    scanf("%d", &n2);
+    printf("Enter array 2 elements:- ");
+    for (int i = 0; i < n2; i++)
+    {
+        scanf("%d", &b[i]);
+    }
+    asc(b, n2);
+    int new_size;
+    new_size = n1+n2;
+    int c[new_size];
+    for (int i = 0 , j=n1; i < n1 , j<new_size; i++ , j++)
+    {
+        c[i] = a[i];
+        c[j] = b[i];
+    }
+    asc(c , new_size);
+    for (int i = 0; i < new_size; i++)
+    {
+    printf("%d " , c[i]);
+    }
+    
+    return 0;
+}
+// definition of function for sorting array
+int asc(int *arr, int n) // n is the size of array
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[i])
+            {
+                int temp;
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return 0;
+}
+
+
+
