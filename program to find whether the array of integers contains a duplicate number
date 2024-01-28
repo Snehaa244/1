@@ -1,0 +1,39 @@
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+
+using namespace std;
+
+// Function to check if the array contains a duplicate number
+bool containsDuplicate(vector<int>& nums) {
+    unordered_set<int> numSet;
+
+    for (int num : nums) {
+        if (numSet.find(num) != numSet.end()) {
+            return true; // Duplicate found
+        } else {
+            numSet.insert(num);
+        }
+    }
+
+    return false; // No duplicates found
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // Example array without duplicates
+    vector<int> numsWithDuplicates = {1, 2, 3, 4, 5, 2, 6, 7, 8, 9}; // Example array with duplicates
+
+    if (containsDuplicate(nums)) {
+        cout << "Array contains duplicate numbers." << endl;
+    } else {
+        cout << "Array does not contain duplicate numbers." << endl;
+    }
+
+    if (containsDuplicate(numsWithDuplicates)) {
+        cout << "Array with duplicates contains duplicate numbers." << endl;
+    } else {
+        cout << "Array with duplicates does not contain duplicate numbers." << endl;
+    }
+
+    return 0;
+}
