@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to delete a number from a given location in an array
+vector<int> deleteNumber(vector<int>& arr, int index) {
+    int n = arr.size();
+    vector<int> result;
+
+    // Check if the index is valid
+    if (index < 0 || index >= n) {
+        cout << "Invalid index. Deletion failed." << endl;
+        return arr;
+    }
+
+    // Copy elements to the result array excluding the element at the given index
+    for (int i = 0; i < n; i++) {
+        if (i != index) {
+            result.push_back(arr[i]);
+        }
+    }
+
+    return result;
+}
+
+// Function to display an array
+void displayArray(const vector<int>& arr) {
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    // Input array
+    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+    // Index of the number to delete
+    int indexToDelete = 4; // For example, deleting the element at index 4
+
+    cout << "Original Array: ";
+    displayArray(arr);
+
+    // Delete the number at the given index
+    arr = deleteNumber(arr, indexToDelete);
+
+    cout << "Array after deleting element at index " << indexToDelete << ": ";
+    displayArray(arr);
+
+    return 0;
+}
