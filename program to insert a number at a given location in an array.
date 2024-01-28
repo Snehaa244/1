@@ -1,0 +1,59 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to insert a number at a given location in an array
+vector<int> insertNumber(vector<int>& arr, int num, int index) {
+    int n = arr.size();
+    vector<int> result;
+
+    // Check if the index is valid
+    if (index < 0 || index > n) {
+        cout << "Invalid index. Insertion failed." << endl;
+        return arr;
+    }
+
+    // Insert the number at the given index
+    for (int i = 0; i < n; i++) {
+        if (i == index) {
+            result.push_back(num);
+        }
+        result.push_back(arr[i]);
+    }
+
+    // If the number is to be inserted at the end
+    if (index == n) {
+        result.push_back(num);
+    }
+
+    return result;
+}
+
+// Function to display an array
+void displayArray(const vector<int>& arr) {
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    // Input array
+    vector<int> arr = {1, 2, 4, 5, 6, 7, 8, 9};
+
+    // Number to insert and its index
+    int numToInsert = 3;
+    int indexToInsert = 2; // For example, inserting the element at index 2
+
+    cout << "Original Array: ";
+    displayArray(arr);
+
+    // Insert the number at the given index
+    arr = insertNumber(arr, numToInsert, indexToInsert);
+
+    cout << "Array after inserting " << numToInsert << " at index " << indexToInsert << ": ";
+    displayArray(arr);
+
+    return 0;
+}
