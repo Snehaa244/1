@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to insert a number into a sorted array
+vector<int> insertNumber(vector<int>& arr, int num) {
+    int n = arr.size();
+    vector<int> result;
+
+    // Find the position to insert the number
+    int i = 0;
+    while (i < n && arr[i] < num) {
+        result.push_back(arr[i]);
+        i++;
+    }
+
+    // Insert the number into the array
+    result.push_back(num);
+
+    // Copy the remaining elements
+    for (; i < n; i++) {
+        result.push_back(arr[i]);
+    }
+
+    return result;
+}
+
+// Function to display an array
+void displayArray(const vector<int>& arr) {
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    // Sorted array
+    vector<int> arr = {1, 2, 4, 5, 6, 7, 8, 9};
+
+    // Number to insert
+    int numToInsert = 3;
+
+    cout << "Original Array: ";
+    displayArray(arr);
+
+    // Insert the number into the array
+    arr = insertNumber(arr, numToInsert);
+
+    cout << "Array after inserting " << numToInsert << ": ";
+    displayArray(arr);
+
+    return 0;
+}
